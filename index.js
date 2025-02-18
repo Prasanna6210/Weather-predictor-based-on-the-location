@@ -1,10 +1,13 @@
 import express from "express";
 import axios from "axios";
 import { join } from 'path';
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const port = 3000;
-const API_KEY = 'db29457f2a2af23c132aceddc0e3e9dc';  // Your API key
+const API_KEY =process.env.API_KEY; // Your API key
 
 // Middleware to serve static files
 app.use('/styles', express.static(join(process.cwd(), 'styles')));  // Use `process.cwd()` for current directory

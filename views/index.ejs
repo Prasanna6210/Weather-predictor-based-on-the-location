@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Predictor App</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <form action="/submit-location" method="POST">
+      <input type="text" name="location" placeholder="Enter your location" />
+      <button type="submit">Submit</button>
+    </form>
+    <% if (typeof location !== 'undefined' && location && umbrellaMessage) { %>
+    <div id="result">
+      <h1>Results</h1>
+      <h2>Weather info for <%= location %>:</h2>
+      <p>Temperature: <%= (weatherData.temp - 273.15).toFixed(2) %>°C</p>
+      <!-- Convert temp from Kelvin to Celsius -->
+      <p><%= umbrellaMessage %></p>
+    </div>
+    <% } %>
+  </body>
+</html>
